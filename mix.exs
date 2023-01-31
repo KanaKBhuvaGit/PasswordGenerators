@@ -50,7 +50,8 @@ defmodule PasswordGenerator.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:httpoison, "~> 2.0.0"},
-      {:bamboo, "~> 1.7.1"}
+      {:bamboo, "~> 2.3.0"},
+      {:bamboo_phoenix, "~> 1.0"}
     ]
   end
 
