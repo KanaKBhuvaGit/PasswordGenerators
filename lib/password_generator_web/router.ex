@@ -51,7 +51,8 @@ defmodule PasswordGeneratorWeb.Router do
     scope "/dev" do
       pipe_through :browser
 
-      forward "/mailbox", Plug.Swoosh.MailboxPreview
+      # forward "/mailbox", Plug.Swoosh.MailboxPreview
+      forward "/sent_emails", Bamboo.SentEmailViewerPlug
     end
   end
 end

@@ -1,5 +1,6 @@
 defmodule PasswordGeneratorWeb.PageController do
   use PasswordGeneratorWeb, :controller
+  alias PasswordGenerator.{Email, Mailer}
 
   def index(conn, _params, password_length) do
     conn
@@ -15,6 +16,9 @@ defmodule PasswordGeneratorWeb.PageController do
     |> assign(:password_length, password_length)
     |> assign(:password, password)
     |> render("index.html")
+
+    Email.welcome_email("testkkk@yopmail.com")
+    |> Mailer.deliver_later()
   end
 
   def action(conn, _) do

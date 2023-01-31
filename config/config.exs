@@ -24,7 +24,8 @@ config :password_generator, PasswordGeneratorWeb.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :password_generator, PasswordGenerator.Mailer, adapter: Swoosh.Adapters.Local
+# config :password_generator, PasswordGenerator.Mailer, adapter: Swoosh.Adapters.Local
+config :password_generator, PasswordGenerator.Mailer, adapter: Bamboo.LocalAdapter
 
 # Swoosh API client is needed for adapters other than SMTP.
 config :swoosh, :api_client, false

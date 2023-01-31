@@ -73,3 +73,19 @@ config :phoenix, :stacktrace_depth, 20
 
 # Initialize plugs at runtime for faster development compilation
 config :phoenix, :plug_init_mode, :runtime
+
+config :homepie, PasswordGenerator.Mailer,
+  adapter: Bamboo.LocalAdapter,
+  open_email_in_browser_url: "http://localhost:4000/dev/sent_emails"
+
+# config :homepie, PasswordGenerator.Mailer,
+#   adapter: Bamboo.SMTPAdapter,
+#   server: ": smtp.gmail.com",
+#   port: 587,
+#   username: "bhuvakanak777@gmail.com",
+#   password: "99999knk385",
+#   # can be `:always` or `:never`
+#   tls: :if_available,
+#   # can be `true`
+#   ssl: false,
+#   retries: 1

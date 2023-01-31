@@ -48,7 +48,9 @@ defmodule PasswordGenerator.MixProject do
       {:telemetry_poller, "~> 1.0"},
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
-      {:plug_cowboy, "~> 2.5"}
+      {:plug_cowboy, "~> 2.5"},
+      {:httpoison, "~> 2.0.0"},
+      {:bamboo, "~> 1.7.1"}
     ]
   end
 
