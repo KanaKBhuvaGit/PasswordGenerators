@@ -4,7 +4,6 @@ defmodule PasswordGenerator.PasswordGenerator do
   """
   @allowed_options [:length, :numbers, :uppercase, :symbols]
 
-  @spec generate(options :: map()) :: {:ok, bitstring()} | {:error, bitstring()}
   def generate(options) do
     length = Map.has_key?(options, "length")
     validate_length(length, options)

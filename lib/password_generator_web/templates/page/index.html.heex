@@ -28,6 +28,16 @@
 
       <div class="row">
         <div class="column">
+          <%= label f, :numbers, "Include numbers: " %>
+        </div>
+        <div class="column">
+          <%= checkbox f, :numbers %>
+          (e.g. 1234567890)
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="column">
           <%= label f, :symbols, "Include symbols: " %>
         </div>
         <div class="column">
