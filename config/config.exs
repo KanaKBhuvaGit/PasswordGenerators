@@ -24,10 +24,10 @@ config :password_generator, PasswordGeneratorWeb.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :password_generator, PasswordGenerator.Mailer, adapter: Swoosh.Adapters.Local
+# config :password_generator, PasswordGenerator.Mailer, adapter: Swoosh.Adapters.Local
 
-# Swoosh API client is needed for adapters other than SMTP.
-config :swoosh, :api_client, false
+# # Swoosh API client is needed for adapters other than SMTP.
+# config :swoosh, :api_client, false
 
 # Configure esbuild (the version is required)
 config :esbuild,

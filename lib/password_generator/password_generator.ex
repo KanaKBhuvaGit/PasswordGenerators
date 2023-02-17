@@ -1,4 +1,4 @@
-defmodule PassGenerator do
+defmodule PasswordGenerator.PasswordGenerator do
   @moduledoc """
   Documentation for `PasswordGenerator`.
   """

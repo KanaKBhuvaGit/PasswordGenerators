@@ -21,7 +21,7 @@ config :password_generator, PasswordGeneratorWeb.Endpoint,
   server: false
 
 # In test we don't send emails.
-config :password_generator, PasswordGenerator.Mailer, adapter: Swoosh.Adapters.Test
+# config :password_generator, PasswordGenerator.Mailer, adapter: Swoosh.Adapters.Test
 
 # Print only warnings and errors during test
 config :logger, level: :warn
