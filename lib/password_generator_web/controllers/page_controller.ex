@@ -9,7 +9,7 @@ defmodule PasswordGeneratorWeb.PageController do
   end
 
   def generate(conn, %{"password" => password_params}, password_length) do
-    {:ok, password} = PassGenerator.generate(password_params)
+    {:ok, password} = PasswordGenerator.PasswordGenerator.generate(password_params)
 
     conn
     |> assign(:password_length, password_length)
