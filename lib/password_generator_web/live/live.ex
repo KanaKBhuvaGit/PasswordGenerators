@@ -99,6 +99,19 @@ defmodule PasswordGeneratorWeb.Live do
       <%!-- <div id="thermostat" phx-window-keydown="reset_temp">
         <h2>Current temperature: <%= @temperature %></h2>
       </div> --%>
+      <input value={@password}/>
+      <.form let={f} for={:password} phx-change="validate" phx-submit="save">
+    
+        <%= label f, :username %>
+        <%= text_input f, :username %>
+        <%= error_tag f, :username %>
+    
+        <%= label f, :email %>
+        <%= text_input f, :email %>
+        <%= error_tag f, :email %>
+    
+        <%= submit "Save" %>
+      </.form>
     """
   end
 end
