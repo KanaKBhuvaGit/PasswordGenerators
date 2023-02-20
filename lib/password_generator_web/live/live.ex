@@ -55,18 +55,52 @@ defmodule PasswordGeneratorWeb.Live do
   #   {:noreply, socket}
   # end
 
-  def handle_event("update_temp", %{"key" => "ArrowUp"}, socket) do
+  def handle_event("up_arrow", %{"key" => "ArrowUp"}, socket) do
     socket =
       socket
-      |> assign(temperature: 1)
+      |> assign(temperature: 8)
 
     {:noreply, socket}
   end
 
-  def handle_event("reset_temp", %{"key" => "ArrowDown"}, socket) do
+  def handle_event("down_arrow", %{"key" => "ArrowDown"}, socket) do
     socket =
       socket
-      |> assign(temperature: 5)
+      |> assign(temperature: 2)
+
+    {:noreply, socket}
+  end
+
+  def handle_event("left_arrow", %{"key" => "ArrowLeft"}, socket) do
+    socket =
+      socket
+      |> assign(temperature: 6)
+
+    {:noreply, socket}
+  end
+
+  def handle_event("right_arrow", %{"key" => "ArrowRight"}, socket) do
+    socket =
+      socket
+      |> assign(temperature: 4)
+
+    {:noreply, socket}
+  end
+
+  def handle_event("live_disconnected", _, socket) do
+    Logger.info("Live disconnecteddddddddddddddddddd")
+    # socket =
+    #   socket
+    #   |> assign(temperature: 4)
+
+    {:noreply, socket}
+  end
+
+  def handle_event("live_connected", _, socket) do
+    Logger.info("Live connecteddddddddddddddddddd")
+    # socket =
+    #   socket
+    #   |> assign(temperature: 4)
 
     {:noreply, socket}
   end
@@ -85,33 +119,26 @@ defmodule PasswordGeneratorWeb.Live do
           <button phx-click="name" phx-value-name="Kanak", phx-value-surname="Bhuva", value="knk">Name?</button>
         </p>
       </div>
-      <div class="container"
+      <%!-- <div class="container"
         phx-window-focus="page-active"
         phx-window-blur="page-inactive"
         phx-value-page="123"
         tabindex="2">
         To detect when the page itself has received focus or blur, phx-window-focus and phx-window-blur may be specified. These window level events may also be necessary if the element in consideration (most often a div with no tabindex) cannot receive focus.
-      </div>
-      <br/><br/><br/>
-      <div id="thermostat1" phx-window-keyup="update_temp">
-        <h2>Current temperature: <%= @temperature %></h2>
-      </div>
-      <%!-- <div id="thermostat" phx-window-keydown="reset_temp">
-        <h2>Current temperature: <%= @temperature %></h2>
       </div> --%>
-      <input value={@password}/>
-      <.form let={f} for={:password} phx-change="validate" phx-submit="save">
+      <br/>
+      <div id="thermostat1" >
+        <h2 phx-window-keyup="up_arrow" phx-key="ArrowUp">Up Arrow: <%= @temperature %></h2>
+        <%!-- <h2 tabindex="0" phx-keyup="left_arrow" phx-key="ArrowLeft">Left Arrow: <%= @temperature %></h2> --%>
+      </div>
+      <div id="thermostat">
+        <h2  phx-window-keydown="down_arrow" phx-key="ArrowDown">Down Arrow: <%= @temperature %></h2>
+        <%!-- <h2  phx-keydown="right_arrow" phx-key="ArrowRight">Right Arrow: <%= @temperature %></h2> --%>
+      </div>
     
-        <%= label f, :username %>
-        <%= text_input f, :username %>
-        <%= error_tag f, :username %>
-    
-        <%= label f, :email %>
-        <%= text_input f, :email %>
-        <%= error_tag f, :email %>
-    
-        <%= submit "Save" %>
-      </.form>
+      <div>
+        <input type="text" name="user[phone_number]" id="user-phone-number" phx-hook="PhoneNumber" />
+      </div>
     """
   end
 end

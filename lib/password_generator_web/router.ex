@@ -20,6 +20,7 @@ defmodule PasswordGeneratorWeb.Router do
     get "/", PageController, :index
     post "/", PageController, :generate
     live "/live", Live
+    live "/form", Form
   end
 
   # Other scopes may use custom stacks.
